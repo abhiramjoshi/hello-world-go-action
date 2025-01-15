@@ -22,14 +22,15 @@ function chooseBinary() {
 function main() {
     const binary = chooseBinary()
     const mainScript = `${__dirname}/${binary}`
-    const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' })
+    console.log(`Using file ${binary}`);
+    const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' });
     const status = spawnSyncReturns.status
     if (typeof status === 'number') {
-        process.exit(status)
+        process.exit(status);
     }
-    process.exit(1)
+    process.exit(1);
 }
 
 if (require.main === module) {
-    main()
+    main();
 }
