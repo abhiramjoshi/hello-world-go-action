@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"github.com/sethvargo/go-githubactions"
@@ -23,4 +24,5 @@ func main() {
   }()
   action.SetOutput("time", time)
   log.Println("Running on Github")
+  os.Exit(0)
 }

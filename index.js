@@ -25,11 +25,11 @@ function main() {
     console.log(`Using file ${binary}`);
     const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' });
     const status = spawnSyncReturns.status
-    if (typeof status === 'number') {
+    if (status != 0) {
       console.log(`Failed exit status of ${status}`);  
       process.exit(status);
     }
-    console.log("Go binary ran fine")
+    console.log(spawnSyncReturns.stdout.toString())
     process.exit(0);
 }
 
