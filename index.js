@@ -30,7 +30,7 @@ function main() {
       process.exit(status);
     }
     console.log("Go binary ran fine")
-    process.exit(1);
+    process.exit(0);
 }
 
 if (require.main === module) {
