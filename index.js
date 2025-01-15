@@ -26,7 +26,8 @@ function main() {
     const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' });
     const status = spawnSyncReturns.status
     if (typeof status === 'number') {
-        process.exit(status);
+      console.log(`Failed exit status of ${status}`);  
+      process.exit(status);
     }
     process.exit(1);
 }
