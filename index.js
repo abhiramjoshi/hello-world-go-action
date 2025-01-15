@@ -29,6 +29,7 @@ function main() {
       console.log(`Failed exit status of ${status}`);  
       process.exit(status);
     }
+    console.log("Go binary ran fine")
     process.exit(1);
 }
 
