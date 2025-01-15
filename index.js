@@ -27,6 +27,7 @@ function main() {
     const status = spawnSyncReturns.status
     if (status != 0) {
       console.log(`Failed exit status of ${status}`);  
+      console.log(spawnSyncReturns.error)
       process.exit(status);
     }
     console.log(spawnSyncReturns.stdout.toString())
