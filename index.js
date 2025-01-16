@@ -30,7 +30,6 @@ function main() {
       console.log(spawnSyncReturns.error)
       process.exit(status);
     }
-    console.log(spawnSyncReturns.stdout.toString())
     process.exit(0);
 }
 

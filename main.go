@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+  log.SetOutput(os.Stdout)
   action := githubactions.New()
   val := action.GetInput("who-to-greet")
   if val == "" {
