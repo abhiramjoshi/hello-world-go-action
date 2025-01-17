@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   build_go_bins:
-    uses: ./.github/workflows/buidgo.yaml
+    uses: ./.github/workflows/buildgo.yaml
     with:
       version: "0_2"
   say_hello_world:
