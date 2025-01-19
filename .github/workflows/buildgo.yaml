@@ -21,6 +21,7 @@ jobs:
             echo "compile_required=true" >> $GITHUB_OUTPUT
           else
             echo "compile_required=false" >> $GITHUB_OUTPUT
+          fi
   build_go_mods:
     needs: [check_build_required]
     if: needs.check_build_required.outputs.compile_required == 'true'
