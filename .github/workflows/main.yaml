@@ -6,4 +6,5 @@ jobs:
     with:
       version: "0_2"
   say_hello_world:
+    needs: [build_go_bins]
     uses: ./.github/workflows/greet.yaml
