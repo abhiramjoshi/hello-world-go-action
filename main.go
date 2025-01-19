@@ -16,7 +16,7 @@ func main() {
     val = "World"
   }
   action.Infof("Hello %v", val)
-  log.Printf("Hello, %v", val)
+  log.Printf("Hello %v", val)
   time := time.Now().String()
   defer func() {
     if err := recover(); err != nil {

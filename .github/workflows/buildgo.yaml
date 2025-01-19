@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check If Build Required
     outputs:
-      compile_required: ${{ steps.check_changes.output.compile_required }}
+      compile_required: ${{ steps.check_changes.outputs.compile_required }}
     steps:
       - uses: actions/checkout@v4
         with:
