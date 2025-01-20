@@ -27,8 +27,6 @@ jobs:
     if: needs.check_build_required.outputs.compile_required == 'true'
     runs-on: ubuntu-latest
     name: Build Go action binaries
-    outputs:
-      built_bins: ${{ steps.built_binaries.outputs.}}
     strategy:
       matrix:
         arch: ['amd64', 'arm64']
@@ -63,6 +61,5 @@ jobs:
           committer_name: Github Actions
           committer_email: actionbot@github.com
           add: 'bins/*'
-        ## Build go program
         
 
