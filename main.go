@@ -15,7 +15,7 @@ func main() {
   if val == "" {
     val = "World"
   }
-  action.Infof("Hello %v", val)
+  action.Infof("Hello, %v", val)
   log.Printf("Hello %v", val)
   time := time.Now().String()
   defer func() {

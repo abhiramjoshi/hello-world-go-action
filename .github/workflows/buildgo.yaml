@@ -27,6 +27,8 @@ jobs:
     if: needs.check_build_required.outputs.compile_required == 'true'
     runs-on: ubuntu-latest
     name: Build Go action binaries
+    outputs:
+      built_bins: ${{ steps.built_binaries.outputs.}}
     strategy:
       matrix:
         arch: ['amd64', 'arm64']
@@ -40,13 +42,27 @@ jobs:
         run: go get .
       - name: Build
         run: go build -o main-linux-${{ matrix.arch }}-${{ inputs.version }} .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: main-linux-${{ matrix.arch }}-${{ inputs.version }}
+          path: ./main-linux-${{ matrix.arch }}-${{ inputs.version }}
+  commit_binaries:
+    needs: [build_go_mods]
+    runs-on: ubuntu-latest
+    name: Commit built go binaries
+    steps:
+      - uses: actions/checkout@v4
+      - name: getbins
+        uses: actions/download-artifact@v4
+        with:
+          path: ./bins/
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
-          message: Github Actions Go build v${{ inputs.version }}
-          commiter_name: Github Actions
+          message: Github Actions Go build binaries for ${{ inputs.version }}
+          committer_name: Github Actions
           committer_email: actionbot@github.com
-          add: 'main-linux*'
+          add: 'bins/*'
         ## Build go program
         
 
