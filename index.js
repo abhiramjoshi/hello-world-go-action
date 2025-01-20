@@ -2,7 +2,7 @@ const childProcess = require('child_process')
 const os = require('os')
 const process = require('process')
 
-const VERSION = '0_1'
+const VERSION = '0_2'
 
 function chooseBinary() {
     const platform = os.platform()
@@ -21,7 +21,7 @@ function chooseBinary() {
 
 function main() {
     const binary = chooseBinary()
-    const mainScript = `${__dirname}/${binary}`
+    const mainScript = `${__dirname}/bins/${binary}/${binary}`
     console.log(`Using file ${binary}`);
     const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' });
     const status = spawnSyncReturns.status

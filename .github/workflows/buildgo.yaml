@@ -54,6 +54,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: ./bins/
+      - name: Make bins executable
+        run: |
+          git update-index --chmod=+x bins/*/*
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
