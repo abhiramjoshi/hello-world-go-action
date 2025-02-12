@@ -17,6 +17,8 @@ func main() {
   }
   action.Infof("Hello %v", val)
   log.Printf("Hello, %v", val)
+  env := os.Getenv("ENV")
+  log.Printf("Env is: %v", env)
   time := time.Now().String()
   defer func() {
     if err := recover(); err != nil {
